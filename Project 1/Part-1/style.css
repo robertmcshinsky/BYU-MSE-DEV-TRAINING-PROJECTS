@@ -1,0 +1,43 @@
+section {
+  width: 100%;
+  height: 300px;
+  background-color: rgb(149, 255, 123);
+  margin-bottom: 30px;
+  position: relative;
+}
+div {
+  width: 30%;
+  height: 200px;
+  background-color: rgb(245, 228, 206);
+  border: 1px solid black;
+  margin-top: 50px;
+  margin-bottom: auto;
+}
+.div1 {
+  float: right;
+  margin-right: 10%;
+}
+.div2 {
+  float: left;
+  margin-left: 10%;
+}
+.div3 {
+  display: inline-block;
+  margin-left: 10%;
+  background-color: rgb(163, 201, 236);
+}
+.div4 {
+  display: inline-block;
+  margin-left: 20%;
+  background-color: rgb(163, 201, 236);
+}
+.div5 {
+  position: absolute;
+  margin-left: 10%;
+  background-color: rgb(163, 201, 236);
+}
+.div6 {
+  position: absolute;
+  margin-left: 60%;
+  background-color: rgb(163, 201, 236);
+}
