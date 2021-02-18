@@ -1,0 +1,90 @@
+body {
+  text-align: center;
+}
+#tiktaktoe {
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  margin-left: 33%;
+  margin-top: 10%;
+}
+header {
+  text-align: center;
+  font-size: 100px;
+}
+#square1,
+#square2,
+#square3,
+#square4,
+#square5,
+#square6,
+#square7,
+#square8,
+#square9 {
+  width: 200px;
+  height: 200px;
+}
+
+#square2 {
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+#square4 {
+  border-bottom: 5px solid black;
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+}
+#square5 {
+  width: 201px;
+  height: 200px;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+}
+
+#square6 {
+  border-bottom: 5px solid black;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+#square8 {
+  border-left: 5px solid black;
+  border-right: 5px solid black;
+}
+
+#square1 h1,
+#square2 h1,
+#square3 h1,
+#square4 h1,
+#square5 h1,
+#square6 h1,
+#square7 h1,
+#square8 h1,
+#square9 h1 {
+  margin-top: 70px;
+}
+#columns {
+  width: 100%;
+  display: flex;
+}
+#x {
+  position: absolute;
+  display: block;
+  margin-top: 200px;
+}
+.x {
+  font-size: 200px;
+  position: absolute;
+  z-index: 10;
+  cursor: move;
+}
+#o {
+  position: absolute;
+  display: block;
+  margin-top: 100px;
+  height: 301px;
+  margin-left: 89%;
+}
+.o {
+  font-size: 300px;
+  position: absolute;
+}
