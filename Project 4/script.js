@@ -1,3 +1,5 @@
+//! NOT MY CODE
+
 //Make the DIV element draggagle:
 dragElement(document.getElementById("x"));
 
