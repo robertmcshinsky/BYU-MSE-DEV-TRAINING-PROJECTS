@@ -35,8 +35,14 @@ input::-webkit-input-placeholder {
 #add {
   background-color: rgb(255, 94, 94);
 }
+#add:hover {
+  background-color: rgb(255, 53, 53);
+}
 #sub {
     background-color: rgb(111, 114, 255);
+
+}#sub:hover {
+    background-color: rgb(75, 78, 255);
 
 }
 #answersAdd {
