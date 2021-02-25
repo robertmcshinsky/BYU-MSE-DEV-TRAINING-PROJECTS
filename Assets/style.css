@@ -1,0 +1,27 @@
+* {
+  text-align: center;
+}
+h1 {
+  padding-bottom: 40px;
+  font-size: 60px;
+}
+h2 {
+  border: 1px solid black;
+  margin-left: 40%;
+  width: 20%;
+  border-radius: 10px;
+}
+h2 a {
+  color: black;
+  text-decoration: none;
+}
+h2:hover a {
+  color: red;
+}
+
+h2:hover {
+  background-color: rgb(255, 253, 105);
+}
+h3 {
+  font-size: small;
+}

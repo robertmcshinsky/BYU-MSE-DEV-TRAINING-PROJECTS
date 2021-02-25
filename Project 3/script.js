@@ -123,11 +123,11 @@ function checkAnswerAdd() {
   console.log(testerAdd + " ADD");
   if (missingAdd === testerAdd) {
     console.log(missingAdd + " " + num[1]);
-    ++correct;
+    correct = correct + levelAdd;
     alert("Correct");
     return 0;
   } else {
-    ++incorrect;
+    incorrect = incorrect + levelAdd;
     alert("Incorrect");
   }
 }
@@ -136,11 +136,11 @@ function checkAnswerSub() {
   console.log(testerSub + " SUB");
   if (missingSub === testerSub) {
     console.log(missingAdd + " " + num[1]);
-    ++correct;
+    correct = correct + levelSub;
     alert("Correct");
     return 0;
   } else {
-    ++incorrect;
+    incorrect = incorrect - levelSub;
     alert("Incorrect");
   }
 }
@@ -149,7 +149,9 @@ function totals() {
   document.getElementById("CIC").innerHTML =
     "<h1 id='scores'>You have " +
     correct +
-    " correct answers!<br>You have " +
+    " POINTS!!!<br>You have " +
     incorrect +
-    " incorrect answers!";
+    " NEGATIVE POINTS!!<br>You are at a total of " +
+    (correct - incorrect) +
+    " POINTS!!!";
 }

@@ -68,7 +68,7 @@ function add(clicked_id) {
   let list = document.createElement("div");
   list.setAttribute("id", "listItem");
   list.innerHTML =
-    appointments[appointments.length - 1] + " " + apptDay[apptDay.length - 1];
+    appointments[appointments.length - 1] + " @ " + apptDay[apptDay.length - 1];
   document.querySelector("#showList").appendChild(list);
 }
 
