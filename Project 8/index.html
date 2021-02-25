@@ -20,13 +20,11 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header id="jumbotron">      
+    <header id="jumbotron">
       <div id="month">Month</div>
-      <div id="date">Today's Date</div>
+      <div id="date"></div>
       <section id="options">
-        <div id="add">Add Event</div>
-        <div id="delete">Delete Event</div>
-        <div id="showList">List of All Events</div>
+        <div id="showList">List of All Events</div>        
       </section>      
       <div id="login">Login</div>
 
@@ -34,10 +32,10 @@
     <!-- BODY -->
     <main>
       <section id="labels">
-
-          <div id="displayMonth"></div>          <div id="displayWeekName"></div>
-
-        </div>
+          <div id="displayMonth"></div>          
+          <div id="displayWeekName"></div>
+        </div>        
+        <div id="delete" onclick="deleteAll()">Delete All Events</div>
       </section>
     </main>
     <!--  -->

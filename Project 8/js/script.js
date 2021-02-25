@@ -29,7 +29,11 @@ let monthEl = document.querySelector("#month");
 let fullWeekEl = document.querySelector("#displayWeekName");
 let fullMonthEl = document.querySelector("#displayMonth");
 let currentMonth = today.getMonth();
-let spacers = today.getDate();
+document.querySelector("#date").innerHTML = today;
+let spacers;
+
+let appointments = [];
+let apptDay = [];
 
 //FIXME \\\\\\\
 function findSpacers() {
@@ -38,13 +42,11 @@ function findSpacers() {
   }
   spacers = (spacers % today.getDay()) + 1;
 }
-findSpacers();
 //FIXME ///////
 function setCurrentMonth() {
   monthEl.innerHTML = year[currentMonth].Month;
 }
 function spacerDays() {
-  currentMonth = 0;
   for (let i = 0; i < spacers; ++i) {
     let box = document.createElement("div");
     box.setAttribute("id", "daySpacer" + (i + 1));
@@ -52,16 +54,45 @@ function spacerDays() {
     fullMonthEl.appendChild(box);
   }
 }
+
+function add(clicked_id) {
+  let info = prompt("What do you want to remember?");
+  appointments.push(info);
+  apptDay.push(clicked_id);
+
+  let appt = document.createElement("p");
+  appt.setAttribute("id", "appt");
+  appt.innerHTML = info;
+  document.querySelector("#" + clicked_id).appendChild(appt);
+
+  let list = document.createElement("div");
+  list.setAttribute("id", "listItem");
+  list.innerHTML =
+    appointments[appointments.length - 1] + " " + apptDay[apptDay.length - 1];
+  document.querySelector("#showList").appendChild(list);
+}
+
+function deleteAll() {
+  let lengthOfAppts = appointments.length;
+  appointments = [];
+  apptDay = [];
+  resetMonth(lengthOfAppts);
+  createDaysContainers();
+}
+
 function createDaysContainers() {
+  spacers = today.getDate();
+  findSpacers();
   spacerDays();
 
-  currentMonth = 0;
   for (let i = 0; i < year[currentMonth].Days; ++i) {
     let box = document.createElement("div");
-    box.setAttribute("id", "day" + (i + 1));
+    box.setAttribute("id", year[currentMonth].Month + "-" + (i + 1));
+    box.setAttribute("class", "box");
     box.innerHTML = i + 1 + ".";
+    box.setAttribute("onclick", "add(this.id)");
     if (i === today.getDate() - 1) {
-      box.style.border = "1px solid red";
+      box.style.border = "2px solid red";
     }
     fullMonthEl.appendChild(box);
   }
@@ -97,16 +128,23 @@ function createWeekContainers() {
     fullWeekEl.appendChild(weekDay);
   }
 }
+
+function resetMonth(lengthOfAppts) {
+  document.querySelector("#displayMonth").innerHTML = "";
+  for (let i = 0; i < lengthOfAppts; ++i) {
+    document.querySelector("#listItem").remove();
+  }
+}
+
+function change() {
+  console.log("CHANGE");
+}
+
+//! DECLARATION OF FUNCTIONS
 createWeekContainers();
 setCurrentMonth();
 createDaysContainers();
-//TODO: Create New Event
 
-function add() {
-  let appt = this.createElement("h6");
-  appt.innerHTML = "WOWOW";
-  this.appendChild(appt);
-}
 //TODO: ADD DELETE & CHANGE FUNCTIONS
 //TODO: CLEAR ALL ITEMS FUNCTION
 //TODO: Maybe be able to drag the event into a different calandar date
