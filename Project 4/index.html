@@ -4,114 +4,133 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 4</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
-    <script>
-      alert("UNDER CONSTRUCTION");
-    </script>
   </head>
   <body>
-    <div id="title">Tic -Tac - Toe</div>
+    <!-- HTML -->
+    <div id="body">
+      <div>
+        <img
+          id="x1"
+          class="x"
+          src="x.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
+      <div>
+        <img
+          id="x2"
+          class="x"
+          src="x.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
+      <div>
+        <img
+          id="x3"
+          class="x"
+          src="x.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
+      <div>
+        <img
+          id="x4"
+          class="x"
+          src="x.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
+      <div>
+        <img
+          id="x5"
+          class="x"
+          src="x.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+      </div>
 
-    <div id="sidebar">
-      <div id="piecesX">
-        <h1 id="drag1" draggable="true" ondragstart="drag(event)">X</h1>
-        <h1 id="drag1" draggable="true" ondragstart="drag(event)">X</h1>
-        <h1 id="drag1" draggable="true" ondragstart="drag(event)">X</h1>
-        <h1 id="drag1" draggable="true" ondragstart="drag(event)">X</h1>
-        <h1 id="drag1" draggable="true" ondragstart="drag(event)">X</h1>
+      <div>
+        <img
+          id="o1"
+          class="o"
+          src="o.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
       </div>
-      <div id="piecesO">
-        <h1 id="drag2" draggable="true" ondragstart="drag(event)">O</h1>
-        <h1 id="drag2" draggable="true" ondragstart="drag(event)">O</h1>
-        <h1 id="drag2" draggable="true" ondragstart="drag(event)">O</h1>
-        <h1 id="drag2" draggable="true" ondragstart="drag(event)">O</h1>
+      <div>
+        <img
+          id="o2"
+          class="o"
+          src="o.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
       </div>
-    </div>
-    <div id="tictaktoe">
-      <div
-        id="div1"
-        class="box1"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        1
+      <div>
+        <img
+          id="o3"
+          class="o"
+          src="o.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
       </div>
-      <br />
-      <div
-        id="div1"
-        class="box2"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        2
+      <div>
+        <img
+          id="o4"
+          class="o"
+          src="o.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
       </div>
-      <br />
-      <div
-        id="div1"
-        class="box3"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        3
+      <div>
+        <img
+          id="o5"
+          class="o"
+          src="o.png"
+          alt=""
+          height="100px"
+          width="100px"
+        />
       </div>
-      <br />
-      <div
-        id="div1"
-        class="box4"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        4
-      </div>
-      <br />
-      <div
-        id="div1"
-        class="box5"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        5
-      </div>
-      <br />
-      <div
-        id="div1"
-        class="box6"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        6
-      </div>
-      <br />
-      <div
-        id="div1"
-        class="box7"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        7
-      </div>
-      <br />
-      <div
-        id="div1"
-        class="box8"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        8
-      </div>
-      <br />
-      <div
-        id="div1"
-        class="box9"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-      >
-        9
-      </div>
-      <br />
-    </div>
 
+      <!-- Target Box -->
+
+      <div id="target1" class="target">T</div>
+      <div id="target2" class="target">I</div>
+      <div id="target3" class="target">C</div>
+      <div id="target4" class="target">T</div>
+      <div id="target5" class="target">A</div>
+      <div id="target6" class="target">C</div>
+      <div id="target7" class="target">T</div>
+      <div id="target8" class="target">O</div>
+      <div id="target9" class="target">E</div>
+    </div>
+    <!-- JS -->
     <script src="script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

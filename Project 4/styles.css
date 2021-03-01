@@ -1,85 +1,107 @@
-#tictaktoe div {
-  width: 33%;
-  height: 33%;
-  flex: 1 0 33%;
+#body {
+  height: 1000px;
+  width: 100%;
+  background-color: rgb(255, 137, 137);
 }
-#drag1,
-#drag2 {
-  font-size: 150px;
-  margin-top: 10px;
-  margin-left: 20px;
-  height: 150px;
-  width: 150px;
-  position: absolute;
+.target {
+  font-size: 40px;
+  text-align: start;
 }
 
-#tictaktoe {
+#x1,
+#x2,
+#x3,
+#x4,
+#x5 {
   position: absolute;
-  width: 600px;
-  height: 600px;
-  display: flex;
-  flex-flow: row wrap;
-  margin-left: 50%;
-  margin-top: 5%;
-  text-align: center;
+  margin-left: 700px;
+  margin-top: 50px;
+  border-radius: 100px;
 }
-#sidebar {
-  width: 20%;
+#o1,
+#o2,
+#o3,
+#o4,
+#o5 {
   position: absolute;
-  margin-left: 10%;
-  height: 98%;
-  background-color: rgb(123, 114, 250);
+  margin-left: 850px;
+  margin-top: 50px;
+  border-radius: 100px;
 }
-#piecesX {
-  width: 45%;
-  height: 55%;
+.o:hover,
+.x:hover {
+  background-color: rgb(255, 106, 106);
+  transition: all 0.3s ease-in-out;
+}
+#target1 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
   position: absolute;
-  margin-left: 27%;
-  margin-top: 60%;
-  background-color: transparent;
+  margin-left: 600px;
+  margin-top: 200px;
 }
-#piecesO {
-  width: 45%;
-  height: 55%;
+#target2 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
   position: absolute;
-  margin-left: 27%;
-  margin-top: 110%;
+  margin-left: 750px;
+  margin-top: 200px;
 }
-#title {
+#target3 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
   position: absolute;
-  font-size: 70px;
-  transform: rotate(270deg);
-  margin-left: -8%;
-  margin-top: 22%;
+  margin-left: 900px;
+  margin-top: 200px;
 }
-.box1 {
-  border-top: transparent;
-  border-left: transparent;
-  border-bottom: 2px solid blue;
-  border-right: 2px solid blue;
+#target4 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 350px;
 }
-.box2 {
-  border-bottom: 2px solid blue;
+#target5 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 750px;
+  margin-top: 350px;
 }
-.box3 {
-  border-bottom: 2px solid blue;
-  border-left: 2px solid blue;
+#target6 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 900px;
+  margin-top: 350px;
 }
-
-.box4 {
-  border-right: 2px solid blue;
+#target7 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 500px;
 }
-.box6 {
-  border-left: 2px solid blue;
+#target8 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 750px;
+  margin-top: 500px;
 }
-.box7 {
-  border-top: 2px solid blue;
-  border-right: 2px solid blue;
-}
-.box8 {
-  border-top: 2px solid blue;
-}
-.box9 {
-  border-left: 2px solid blue;
-  border-top: 2px solid blue;
+#target9 {
+  height: 125px;
+  width: 125px;
+  border: 5px solid black;
+  position: absolute;
+  margin-left: 900px;
+  margin-top: 500px;
 }
