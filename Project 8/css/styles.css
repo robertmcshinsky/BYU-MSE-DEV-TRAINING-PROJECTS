@@ -101,7 +101,7 @@ div {
   text-align: center;
 }
 p {
-  background-color: rgba(137, 137, 255, 0.534);
+  background-color: rgba(137, 255, 143, 0.534);
   display: grid;
   font-size: x-small;
   border: 1px solid black;
@@ -111,4 +111,7 @@ p {
   width: auto;
   padding: 2px;
   justify-items: start;
+}
+.box:hover {
+  background-color: rgba(0, 255, 42, 0.568);
 }
