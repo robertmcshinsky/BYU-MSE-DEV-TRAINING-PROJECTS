@@ -1,5 +1,9 @@
 header {
   text-align: center;
+  width: 99%;
+  background-color: rgb(121, 100, 238);
+  padding-bottom: 5px;
+  border-bottom: 5px solid black;
 }
 main {
   display: block;
@@ -11,9 +15,11 @@ h1 {
 }
 h2 {
   border: 1px solid black;
-  width: 50%;
+  width: 80%;
+  margin-left: 10%;
   border-radius: 10px;
   display: block;
+  font-size: 50px;
 }
 h2 a {
   color: black;
@@ -21,5 +27,33 @@ h2 a {
 }
 iframe {
   width: 90%;
-  height: 300px;
+  height: 700px;
+  margin-top: 20px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  width: 99%;
+  height: 70px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+li {
+  float: left;
+  font-size: 30px;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
 }
