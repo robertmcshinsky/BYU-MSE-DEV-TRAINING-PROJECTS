@@ -1,0 +1,78 @@
+body {
+  background-color: black;
+}
+#ticTacToe {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 30% 30% 30%;
+  width: 750px;
+  margin-left: 5%;
+  margin-top: 90px;
+  column-gap: 30px;
+  row-gap: 20px;
+  justify-content: center;
+  position: absolute;
+}
+
+.box {
+  background-color: red;
+}
+
+#armory {
+  border: 2px solid black;
+  height: 600px;
+  width: 400px;
+  margin-top: 50px;
+  margin-left: 1000px;
+  background-color: red;
+  border-radius: 30px;
+  padding-top: 350px;
+  padding-left: 20px;
+}
+
+#forX {
+  display: block;
+  float: left;
+  width: 50%;
+}
+#forO {
+  display: block;
+  float: right;
+  width: 50%;
+}
+
+.o {
+  position: absolute;
+  cursor: grab;
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  border-radius: 50px;
+}
+.o:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.x {
+  position: absolute;
+  cursor: grab;
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  border-radius: 50px;
+}
+.x:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.o img {
+  position: absolute;
+  width: 200px;
+}
+.x img {
+  position: absolute;
+  width: 175px;
+}
