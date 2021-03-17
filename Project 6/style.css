@@ -1,0 +1,53 @@
+#circle  {
+  height:175px;
+  width: 175px;
+  background-color: black;
+  border-radius: 100px;
+  position: relative;
+  animation-name: example;
+  text-align: center;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  0% {background-color: black; left: -20%; top: 50px;}
+  50% {background-color: rgb(177, 0, 0); left: 40%; top: 50px;}
+  100% {background-color: red; left: 40%; top: 50px;}
+}
+
+input {
+  margin-top: 0px;
+  width: 40%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 30px;
+  text-align: center;
+}
+h1  {
+  position: relative;
+  padding-top: 25px;
+  font-size: 40px;
+  color: white;
+}
+.topBomb {
+  width: 85px;
+  height: 30px;
+  background-color: rgb(105, 105, 105);
+  position: absolute;
+  margin-left: 25%;
+  margin-top: -10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.fuse {
+  height: 65px;
+  width: 15px;
+  transform: rotate(45deg);
+  background-color: rgb(105, 105, 105);
+  position: absolute;
+  margin-left: 55%;
+  margin-top: -50px;
+}
+#boom {
+  width: 50%;
+  margin-left: 25%;
+}
