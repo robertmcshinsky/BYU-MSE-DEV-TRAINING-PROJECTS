@@ -3,13 +3,13 @@ let q = [];
 let a = [];
 let timeframe = 10;
 let gauge = 10;
-let points;
+let points = 0;
 
 //
 
 function addCircle() {
   ++i;
-
+  document.querySelector("#starter").innerHTML = "";
   for (let k = 0; k < i + 1; ++k) {
     let rand = Math.floor(Math.random() * gauge);
     console.log(rand);
@@ -62,7 +62,8 @@ function addCircle() {
       document.querySelector("#game").innerHTML = "";
       gauge = gauge + 10;
       ++points;
-      if (points % 2 == 0) {
+      document.querySelector("#points").innerHTML = points + " Points";
+      if (points % 5 == 0) {
         --timeframe;
       }
       addCircle();
@@ -81,5 +82,3 @@ function addCircle() {
   document.querySelector("#game").appendChild(circle).focus();
   document.getElementById("text").focus();
 }
-
-addCircle();

@@ -144,7 +144,3 @@ function change() {
 createWeekContainers();
 setCurrentMonth();
 createDaysContainers();
-
-//TODO: ADD DELETE & CHANGE FUNCTIONS
-//TODO: CLEAR ALL ITEMS FUNCTION
-//TODO: Maybe be able to drag the event into a different calandar date
