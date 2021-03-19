@@ -10,7 +10,6 @@ main {
   width: 70%;
   margin-left: 15%;
   border-radius: 30px;
-  background-color: blue;
 }
 #signIn,
 #signUp {
@@ -19,46 +18,23 @@ main {
   display: block;
 }
 #signIn {
-  border-top: 4px solid black;
-  border-bottom: 2px solid black;
-  border-right: 4px solid black;
+
   float: left;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+
   margin-left: 2.5%;
   margin-top: 50px;
-  background-image: linear-gradient(
-    to left,
-    rgb(193, 246, 255),
-    rgb(111, 233, 255),
-    rgb(0, 217, 255),
-    blue
-  );
+
 }
 #signIn h2 {
   padding-bottom: 80px;
 }
 
 #signUp {
-  border-top: 4px solid black;
-  border-bottom: 2px solid black;
-  border-left: 4px solid black;
   float: right;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
+
   margin-right: 2.5%;
   margin-top: 50px;
-  background-image: linear-gradient(
-    to right,
-    rgb(193, 246, 255),
-    rgb(111, 233, 255),
-    rgb(0, 217, 255),
-    blue
-  );
+
 }
 label {
   font-size: 25px;
@@ -69,6 +45,7 @@ input {
   border-radius: 5px;
   padding-bottom: 15px;
   font-size: 25px;
+  width: 100%;
 }
 
 #submitSignIn {
@@ -84,4 +61,7 @@ input {
   margin-top: 10px;
   padding-bottom: 30px;
   width: 100px;
+}
+#submitSignIn:hover, #submitSignUp:hover {
+  background-color: grey;
 }
