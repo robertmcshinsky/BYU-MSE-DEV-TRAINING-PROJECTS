@@ -1,4 +1,11 @@
-let person = [];
+let person = [
+  {
+    firstName: "test",
+    lastName: "test",
+    userName: "test",
+    password: "test",
+  },
+];
 
 function main() {
   console.log("@main");
@@ -15,22 +22,29 @@ function signUp() {
   let password = document.querySelector("#createPassword").value;
   console.log(password);
 
-  person.push({firstName: fName, lastName: lName, userName: uName, password: password})
+  person.push({
+    firstName: fName,
+    lastName: lName,
+    userName: uName,
+    password: password,
+  });
+  localStorage.setItem("person", toString(person));
+  console.log(person);
 }
 
 function signIn() {
   console.log("@signIn");
   let uName = document.querySelector("#login").value;
   let password = document.querySelector("#password").value;
-  console.log(uName)
-  console.log(password)
-  for(let i = 0; i < person.length; ++i) {
-    console.log(i)
+  console.log(uName);
+  console.log(password);
+  for (let i = 0; i < person.length; ++i) {
+    console.log(i);
     if (uName === person[i].userName && password === person[i].password) {
-      displayLoginInfo(i)
-      console.log("YAY")
+      displayLoginInfo(i);
+      console.log("YAY");
     } else {
-      console.log("Incorrect Username or Password")
+      console.log("Incorrect Username or Password");
     }
   }
 }
@@ -39,39 +53,36 @@ function displayLoginInfo(i) {
   console.log("@displayLoginInfo");
   //
 
-  document.querySelector("#main").innerHTML = ""
-  
-  let info = document.createElement('div')
-  info.setAttribute("id", "info")
+  document.querySelector("#main").innerHTML = "";
 
-  let fName = document.createElement("div")
-  fName.setAttribute("id", "userFirstName")
-  fName.innerHTML = person[i].firstName
+  let info = document.createElement("div");
+  info.setAttribute("id", "info");
 
-  let lName = document.createElement('div')
-  lName.setAttribute("id", "userLastName")
-  lName.innerHTML = person[i].lastName
+  let fName = document.createElement("div");
+  fName.setAttribute("id", "userFirstName");
+  fName.innerHTML = person[i].firstName;
 
-  let uName = document.createElement('div')
-  uName.setAttribute("id", "userUserName")
-  uName.innerHTML = person[i].userName
+  let lName = document.createElement("div");
+  lName.setAttribute("id", "userLastName");
+  lName.innerHTML = person[i].lastName;
 
-  let password = document.createElement('div')
-  password.setAttribute("id", "userPassword")
-  password.setAttribute("type", "password")
-  password.innerHTML = person[i].password
+  let uName = document.createElement("div");
+  uName.setAttribute("id", "userUserName");
+  uName.innerHTML = person[i].userName;
 
-  info.appendChild(fName)
-  info.appendChild(lName)
-  info.appendChild(uName)
-  info.appendChild(password)
+  let password = document.createElement("div");
+  password.setAttribute("id", "userPassword");
+  password.setAttribute("type", "password");
+  password.innerHTML = person[i].password;
 
-  document.querySelector("#main").appendChild(info)
+  info.appendChild(fName);
+  info.appendChild(lName);
+  info.appendChild(uName);
+  info.appendChild(password);
+
+  document.querySelector("#main").appendChild(info);
   //
 }
 
-
 // CALLING MAIN
 main();
-
-

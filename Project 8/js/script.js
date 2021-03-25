@@ -1,41 +1,44 @@
-//TODO: Create Year Array of Objects
+import { person } from "../../Project 7/script copy.js";
+let year = [
+  { Month: "January", Days: 31 },
+  { Month: "February", Days: 28 },
+  { Month: "March", Days: 31 },
+  { Month: "April", Days: 30 },
+  { Month: "May", Days: 31 },
+  { Month: "June", Days: 30 },
+  { Month: "July", Days: 31 },
+  { Month: "August", Days: 31 },
+  { Month: "September", Days: 30 },
+  { Month: "October", Days: 31 },
+  { Month: "November", Days: 30 },
+  { Month: "December", Days: 31 },
+];
+
+let week = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let today = new Date();
+console.log(today);
+let monthEl = document.querySelector("#month");
+let fullWeekEl = document.querySelector("#displayWeekName");
+let fullMonthEl = document.querySelector("#displayMonth");
+let currentMonth = today.getMonth();
+document.querySelector("#date").innerHTML = today;
+let spacers;
+
+let appointments = [];
+let apptDay = []; //TODO: Create Year Array of Objects
+
+let loggedIn = false;
+
 function createCalandar() {
-  let year = [
-    { Month: "January", Days: 31 },
-    { Month: "February", Days: 28 },
-    { Month: "March", Days: 31 },
-    { Month: "April", Days: 30 },
-    { Month: "May", Days: 31 },
-    { Month: "June", Days: 30 },
-    { Month: "July", Days: 31 },
-    { Month: "August", Days: 31 },
-    { Month: "September", Days: 30 },
-    { Month: "October", Days: 31 },
-    { Month: "November", Days: 30 },
-    { Month: "December", Days: 31 },
-  ];
-
-  let week = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let today = new Date();
-  console.log(today);
-  let monthEl = document.querySelector("#month");
-  let fullWeekEl = document.querySelector("#displayWeekName");
-  let fullMonthEl = document.querySelector("#displayMonth");
-  let currentMonth = today.getMonth();
-  document.querySelector("#date").innerHTML = today;
-  let spacers;
-
-  let appointments = [];
-  let apptDay = [];
-
+  document.querySelector("#loggingIn").remove();
   //FIXME \\\\\\\
   function findSpacers() {
     while (spacers > 7) {
@@ -54,33 +57,6 @@ function createCalandar() {
 
       fullMonthEl.appendChild(box);
     }
-  }
-
-  function add(clicked_id) {
-    let info = prompt("What do you want to remember?");
-    appointments.push(info);
-    apptDay.push(clicked_id);
-
-    let appt = document.createElement("p");
-    appt.setAttribute("id", "appt");
-    appt.innerHTML = info;
-    document.querySelector("#" + clicked_id).appendChild(appt);
-
-    let list = document.createElement("div");
-    list.setAttribute("id", "listItem");
-    list.innerHTML =
-      appointments[appointments.length - 1] +
-      " @ " +
-      apptDay[apptDay.length - 1];
-    document.querySelector("#showList").appendChild(list);
-  }
-
-  function deleteAll() {
-    let lengthOfAppts = appointments.length;
-    appointments = [];
-    apptDay = [];
-    resetMonth(lengthOfAppts);
-    createDaysContainers();
   }
 
   function createDaysContainers() {
@@ -131,6 +107,32 @@ function createCalandar() {
       fullWeekEl.appendChild(weekDay);
     }
   }
+  function add(clicked_id) {
+    let info = prompt("What do you want to remember?");
+    appointments.push(info);
+    apptDay.push(clicked_id);
+
+    let appt = document.createElement("p");
+    appt.setAttribute("id", "appt");
+    appt.innerHTML = info;
+    document.querySelector("#" + clicked_id).appendChild(appt);
+
+    let list = document.createElement("div");
+    list.setAttribute("id", "listItem");
+    list.innerHTML =
+      appointments[appointments.length - 1] +
+      " @ " +
+      apptDay[apptDay.length - 1];
+    document.querySelector("#showList").appendChild(list);
+  }
+
+  function deleteAll() {
+    let lengthOfAppts = appointments.length;
+    appointments = [];
+    apptDay = [];
+    resetMonth(lengthOfAppts);
+    createDaysContainers();
+  }
 
   function resetMonth(lengthOfAppts) {
     document.querySelector("#displayMonth").innerHTML = "";
@@ -149,6 +151,23 @@ function createCalandar() {
   createDaysContainers();
 }
 
+function checkCredentials() {
+  let userName = document.querySelector("#userName").value;
+  let password = document.querySelector("#password").value;
+  for (let i = 0; i < person.length; ++i) {
+    if (userName === person[i].userName && password === person[i].password) {
+      console.log("CORRECT");
+      loggedIn = true;
+    } else {
+      console.log("INCORRECT");
+      document.querySelector("#userName").innerHTML = "";
+      document.querySelector("#password").innerHTML = "";
+    }
+  }
+}
 document.querySelector("#login").addEventListener("click", function () {
-  createCalandar();
+  checkCredentials();
+  if (loggedIn) {
+    createCalandar();
+  }
 });

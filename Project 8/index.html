@@ -21,7 +21,8 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header id="jumbotron">
+    <header id="jumbotron" >
+ 
       <div id="month">Month</div>
       <div id="date"></div>
       <section id="options">
@@ -31,7 +32,12 @@
     </header>
     <!-- BODY -->
     <main>      
-      <div id="loggingIn">
+      <div id="loggingIn" style="z-index: 100;">
+        <h3>Please create an account <a href="Project 7\index.html">Here</a> in order to Login</h3>
+        <label for="userName" >Username: </label>
+        <input type="text" id="userName" name="userName"><br>
+        <label for="password">Password: </label>
+        <input type="password", id="password" name="password">
       <div id="login">Login</div>
 </div>
       <section id="labels">
@@ -56,6 +62,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>

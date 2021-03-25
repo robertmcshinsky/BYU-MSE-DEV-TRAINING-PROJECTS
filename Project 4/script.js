@@ -27,16 +27,19 @@ for (let k = 0; k < boxes; ++k) {
 
   x.setAttribute("id", "x" + k);
   x.setAttribute("class", "x" + k + " x");
+  x.setAttribute("draggable", "false");
   x.innerHTML = "<img src='x.png' />";
   x.style.height = size + "px";
   x.style.width = size + "px";
   x.style.fontSize = size - 50 + "px";
+
   o.setAttribute("id", "o" + k);
   o.setAttribute("class", "o" + k + " o");
   o.innerHTML = "<img src='o.png' />";
   o.style.height = size + "px";
   o.style.width = size + "px";
   o.style.fontSize = size - 50 + "px";
+
   document.querySelector("#forX").appendChild(x);
   document.querySelector("#forO").appendChild(o);
 
