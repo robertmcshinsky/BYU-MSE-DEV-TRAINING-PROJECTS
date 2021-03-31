@@ -179,12 +179,12 @@ const week = [
   "Saturday",
 ];
 
-if (localStorage.getItem("Appointment") !== null) {
-  let appts = JSON.parse(localStorage.getItem("Appointment"));
-  console.log(appts);
-} else if (localStorage.getItem("Appointment") === null) {
-  appts = new Array(0);
-}
+let login = true;
+
+document.querySelector("#login").addEventListener("click", function () {
+  login = true;
+});
+let appts;
 console.log(week);
 console.log(months);
 
@@ -197,13 +197,48 @@ let weekDay = date.getDay();
 let year = date.getFullYear();
 let currentDay;
 
-//DONE
 function SetJumbotron() {
   document.querySelector("#title").innerHTML = "Calendar";
   document.querySelector("#monthName").innerHTML = months[thisMonth].month;
   document.querySelector("#date").innerHTML = today;
   document.querySelector("#login").innerHTML = "Login";
 }
+
+document.querySelector("#add").addEventListener("click", AddAppt);
+document.querySelector("#delete").addEventListener("click", DeleteAppt);
+SetJumbotron();
+Month();
+
+if (localStorage.getItem("Appointment") !== null) {
+  appts = JSON.parse(localStorage.getItem("Appointment"));
+  console.log(appts);
+  for (let h = 0; h < appts.length; ++h) {
+    let day = appts[h].day;
+
+    let prevAppt = document.createElement("div");
+    prevAppt.setAttribute("id", "Day" + day + "SubContent");
+    prevAppt.setAttribute("class", "content");
+
+    document
+      .querySelector("#Day" + day + "Content")
+      .setAttribute("style", "display: none");
+
+    prevAppt.innerHTML = "- " + appts[h].info;
+    console.log(prevAppt);
+    document.querySelector("#Day" + day + "Content").appendChild(prevAppt);
+
+    document
+      .querySelector("#Day" + day)
+      .setAttribute("onmouseover", "show(this.id)");
+    document
+      .querySelector("#Day" + day)
+      .setAttribute("onmouseout", "remove(this.id)");
+  }
+} else if (localStorage.getItem("Appointment") === null) {
+  appts = new Array(0);
+}
+//DONE
+
 //
 // Create the days inside each month
 //DONE
@@ -254,6 +289,14 @@ function clearOptions() {
 //TODO
 function AddAppt() {
   clearOptions();
+
+  if (login) {
+    console.log("Logged In");
+  } else {
+    alert("Please Login in to add an event.");
+    return 0;
+  }
+
   console.log("AddAppt");
   let selection = document.createElement("div");
   selection.setAttribute("id", "selection");
@@ -315,27 +358,30 @@ function DeleteAppt() {
   form.setAttribute("class", "form");
 
   for (let i = 0; i < appts.length; ++i) {
-    let checkbox = document.createElement("input");
-    checkbox.setAttribute("type", "checkbox");
-    checkbox.setAttribute("name", "appt" + i);
-    checkbox.setAttribute("value", appts[i].info);
-    checkbox.setAttribute("id", "checkbox" + i);
-    checkbox.setAttribute("class", "checkbox");
+    let deleteContainer = document.createElement("div");
+    deleteContainer.setAttribute("id", "checkbox" + i + "del");
+    deleteContainer.setAttribute("class", "delCon");
+
+    let delButton = document.createElement("button");
+    delButton.setAttribute("id", "checkbox" + i);
+    delButton.setAttribute("class", "checkbox");
+    delButton.setAttribute("onClick", "delFromCal(this.id)");
+    delButton.innerHTML = "Delete Event";
 
     let cbxLabel = document.createElement("label");
     cbxLabel.setAttribute("for", "appt" + i);
     cbxLabel.innerHTML =
       appts[i].month + " " + appts[i].day + " ➡ " + appts[i].info + "<br>";
 
-    form.appendChild(checkbox);
-    form.appendChild(cbxLabel);
+    deleteContainer.appendChild(delButton);
+    deleteContainer.appendChild(cbxLabel);
+    form.appendChild(deleteContainer);
   }
 
-  let submit = document.createElement("button");
+  let submit = document.createElement("div");
   submit.setAttribute("id", "submitD");
   submit.setAttribute("class", "SubmitD");
   submit.innerHTML = "Delete";
-  submit.setAttribute("onClick", "delFromCal()");
 
   form.appendChild(submit);
 
@@ -355,6 +401,7 @@ function addToCal() {
   console.log();
 
   appts.push({ info: info, month: "March", day: currentDay });
+
   let myJSON = JSON.stringify(appts);
   localStorage.setItem("Appointment", myJSON);
 
@@ -378,15 +425,13 @@ function addToCal() {
     .setAttribute("onmouseout", "remove(this.id)");
 }
 
-function delFromCal() {
+function delFromCal(id) {
   console.log("@delFromCal");
+  console.log(id);
+  document.querySelector("#" + id).remove();
+  document.querySelector("#" + id + "del").remove();
 }
 
 function myNewFunction(sel) {
   currentDay = sel.options[sel.selectedIndex].text;
 }
-
-document.querySelector("#add").addEventListener("click", AddAppt);
-document.querySelector("#delete").addEventListener("click", DeleteAppt);
-SetJumbotron();
-Month();
