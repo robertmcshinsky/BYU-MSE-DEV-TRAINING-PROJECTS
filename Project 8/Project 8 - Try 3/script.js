@@ -185,7 +185,7 @@ let date = new Date();
 let day = date.getDate();
 let month = Year.Months[date.getMonth()].name;
 let year = date.getFullYear();
-
+let weekDay = date.getDay();
 let fullDate = day + " / " + month + " / " + year;
 
 document.querySelector("#fullDate").innerHTML = fullDate;
@@ -237,12 +237,13 @@ class SignUp {
   }
 }
 class Calendar {
-  constructor(year, month, days, appointments, holidays) {
+  constructor(year, month, days, appointments, holidays, weekDay) {
     this.year = year;
     this.month = month;
     this.days = days;
     this.appointments = appointments;
     this.holidays = holidays;
+    this.weekDay = weekDay;
   }
 
   createCalendar() {
@@ -267,6 +268,7 @@ class Calendar {
     for (let i = 0; i < 7; ++i) {
       let card = document.createElement("div");
       card.setAttribute("class", "card");
+      card.setAttribute("style", "border-bottom: 1px solid black");
 
       let cardBody = document.createElement("div");
       cardBody.setAttribute("class", "card-body text-center");
@@ -283,35 +285,123 @@ class Calendar {
     weekDays.appendChild(cardColumns);
 
     /*-------------------------------*/
-    let everyDay, cardColumnsDays;
+    let everyDay, cardC1, cardC2, cardC3, cardC4, cardC5;
 
     everyDay = document.createElement("div");
-    cardColumnsDays = document.createElement("div");
+
+    cardC1 = document.createElement("div");
+    cardC2 = document.createElement("div");
+    cardC3 = document.createElement("div");
+    cardC4 = document.createElement("div");
+    cardC5 = document.createElement("div");
 
     everyDay.setAttribute("class", "everyDay");
-    cardColumnsDays.setAttribute("class", "card-column d-flex");
-    cardColumnsDays.setAttribute(
+    cardC1.setAttribute("class", "card-column ");
+    cardC1.setAttribute(
       "style",
-      "column-count: 7; width: 90%; margin-left: 5%"
+      "column-count: 7; width: 90%; margin-left: 5% "
     );
-
-    for (let k = 0; k < 7; ++k) {
+    cardC2.setAttribute("class", "card-column ");
+    cardC2.setAttribute(
+      "style",
+      "column-count: 7; width: 90%; margin-left: 5% "
+    );
+    cardC3.setAttribute("class", "card-column ");
+    cardC3.setAttribute(
+      "style",
+      "column-count: 7; width: 90%; margin-left: 5% "
+    );
+    cardC4.setAttribute("class", "card-column ");
+    cardC4.setAttribute(
+      "style",
+      "column-count: 7; width: 90%; margin-left: 5% "
+    );
+    cardC5.setAttribute("class", "card-column ");
+    cardC5.setAttribute(
+      "style",
+      "column-count: 7; width: 90%; margin-left: 5% "
+    );
+    let placeHolder = 28;
+    for (let k = 0; k < placeHolder; ++k) {
       let cardDay = document.createElement("div");
       cardDay.setAttribute("class", "card text-center");
-      cardDay.setAttribute("style", "width: 13%; margin-left: 1.1%");
 
       let cardBodyDay = document.createElement("div");
-      cardBodyDay.setAttribute("class", "card-body ");
+      cardBodyDay.setAttribute("class", "card-body");
 
       let cardTitleDay = document.createElement("h5");
       cardTitleDay.setAttribute("class", "card-title");
       cardTitleDay.innerHTML = k + 1;
 
+      let plusEl = document.createElement("div");
+      let plus = document.createElement("div");
+      plus.setAttribute("class", "fa fa-plus-circle");
+      plus.setAttribute(
+        "style",
+        "margin-left: 35%; position: absolute;  margin-top: 2%; "
+      );
+      plus.setAttribute("draggable", "true");
+
+      plusEl.appendChild(plus);
+
+      let viewApptEl = document.createElement("div");
+      let viewAppt = document.createElement("div");
+      viewAppt.setAttribute("class", "fa fa-bars");
+      viewAppt.setAttribute(
+        "style",
+        "position: absolute; margin-left: -45%; margin-top: 2%;"
+      );
+      viewAppt.setAttribute("draggable", "true");
+
+      viewApptEl.appendChild(viewAppt);
+
       cardBodyDay.appendChild(cardTitleDay);
+      cardBodyDay.appendChild(viewApptEl);
+      cardBodyDay.appendChild(plusEl);
       cardDay.appendChild(cardBodyDay);
-      cardColumnsDays.appendChild(cardDay);
+
+      if (k >= 0) {
+        cardC1.appendChild(cardDay);
+      }
+      if (k >= 7) {
+        cardC2.appendChild(cardDay);
+      }
+      if (k >= 14) {
+        cardC3.appendChild(cardDay);
+      }
+      if (k >= 21) {
+        cardC4.appendChild(cardDay);
+      }
+      if (k >= 28) {
+        cardC5.appendChild(cardDay);
+      }
     }
-    everyDay.appendChild(cardColumnsDays);
+    /*
+    for (let j = 0; j < fcNum; ++j) {
+      let fakeCard = document.createElement("div");
+      fakeCard.setAttribute("class", "card text-center");
+
+      let cdBody = document.createElement("div");
+      cdBody.setAttribute("class", "card-body ");
+
+      let cTDay = document.createElement("h5");
+      cTDay.setAttribute("class", "card-title");
+
+      cdBody.appendChild(cTDay);
+      fakeCard.appendChild(cdBody);
+      cardC1.appendChild(fakeCard);
+    }*/
+
+    everyDay.insertAdjacentHTML("beforeend", "</br>");
+    everyDay.appendChild(cardC1);
+    everyDay.insertAdjacentHTML("beforeend", "</br>");
+    everyDay.appendChild(cardC2);
+    everyDay.insertAdjacentHTML("beforeend", "</br>");
+    everyDay.appendChild(cardC3);
+    everyDay.insertAdjacentHTML("beforeend", "</br>");
+    everyDay.appendChild(cardC4);
+    everyDay.insertAdjacentHTML("beforeend", "</br>");
+    everyDay.appendChild(cardC5);
 
     calendar.appendChild(weekDays);
     calendar.appendChild(everyDay);
