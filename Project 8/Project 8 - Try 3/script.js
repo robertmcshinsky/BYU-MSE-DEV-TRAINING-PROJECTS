@@ -183,9 +183,11 @@ const Year = {
 };
 let date = new Date();
 let day = date.getDate();
+console.log("day: " + day);
 let month = Year.Months[date.getMonth()].name;
 let year = date.getFullYear();
 let weekDay = date.getDay();
+console.log("today: " + weekDay);
 let fullDate = day + " / " + month + " / " + year;
 
 document.querySelector("#fullDate").innerHTML = fullDate;
@@ -296,42 +298,20 @@ class Calendar {
     cardC5 = document.createElement("div");
 
     everyDay.setAttribute("class", "everyDay");
-    cardC1.setAttribute("class", "card-column ");
-    cardC1.setAttribute(
-      "style",
-      "column-count: 7; width: 90%; margin-left: 5% "
-    );
-    cardC2.setAttribute("class", "card-column ");
-    cardC2.setAttribute(
-      "style",
-      "column-count: 7; width: 90%; margin-left: 5% "
-    );
-    cardC3.setAttribute("class", "card-column ");
-    cardC3.setAttribute(
-      "style",
-      "column-count: 7; width: 90%; margin-left: 5% "
-    );
-    cardC4.setAttribute("class", "card-column ");
-    cardC4.setAttribute(
-      "style",
-      "column-count: 7; width: 90%; margin-left: 5% "
-    );
-    cardC5.setAttribute("class", "card-column ");
-    cardC5.setAttribute(
-      "style",
-      "column-count: 7; width: 90%; margin-left: 5% "
-    );
-    let placeHolder = 28;
-    for (let k = 0; k < placeHolder; ++k) {
+    cardC1.setAttribute("class", "grid-container allCards");
+
+    let dayNum = 1;
+    for (let k = 0; k < 42; ++k) {
       let cardDay = document.createElement("div");
-      cardDay.setAttribute("class", "card text-center");
+      cardDay.setAttribute("class", "card text-center grid-item");
+      cardDay.setAttribute("id", "card" + (k + 1));
 
       let cardBodyDay = document.createElement("div");
       cardBodyDay.setAttribute("class", "card-body");
 
       let cardTitleDay = document.createElement("h5");
       cardTitleDay.setAttribute("class", "card-title");
-      cardTitleDay.innerHTML = k + 1;
+      let spacer;
 
       let plusEl = document.createElement("div");
       let plus = document.createElement("div");
@@ -342,8 +322,6 @@ class Calendar {
       );
       plus.setAttribute("draggable", "true");
 
-      plusEl.appendChild(plus);
-
       let viewApptEl = document.createElement("div");
       let viewAppt = document.createElement("div");
       viewAppt.setAttribute("class", "fa fa-bars");
@@ -353,28 +331,22 @@ class Calendar {
       );
       viewAppt.setAttribute("draggable", "true");
 
-      viewApptEl.appendChild(viewAppt);
-
+      spacer = (day % 7) + weekDay;
+      if (k > spacer) {
+        cardTitleDay.innerHTML = dayNum;
+        plusEl.appendChild(plus);
+        viewApptEl.appendChild(viewAppt);
+        ++dayNum;
+      }
+      if (k > Year.Months[date.getMonth()].days) {
+        console.log("HERE");
+        cardTitleDay.innerHTML = "";
+      }
       cardBodyDay.appendChild(cardTitleDay);
       cardBodyDay.appendChild(viewApptEl);
       cardBodyDay.appendChild(plusEl);
       cardDay.appendChild(cardBodyDay);
-
-      if (k >= 0) {
-        cardC1.appendChild(cardDay);
-      }
-      if (k >= 7) {
-        cardC2.appendChild(cardDay);
-      }
-      if (k >= 14) {
-        cardC3.appendChild(cardDay);
-      }
-      if (k >= 21) {
-        cardC4.appendChild(cardDay);
-      }
-      if (k >= 28) {
-        cardC5.appendChild(cardDay);
-      }
+      cardC1.appendChild(cardDay);
     }
     /*
     for (let j = 0; j < fcNum; ++j) {
@@ -391,18 +363,10 @@ class Calendar {
       fakeCard.appendChild(cdBody);
       cardC1.appendChild(fakeCard);
     }*/
-
     everyDay.insertAdjacentHTML("beforeend", "</br>");
+
     everyDay.appendChild(cardC1);
-    everyDay.insertAdjacentHTML("beforeend", "</br>");
-    everyDay.appendChild(cardC2);
-    everyDay.insertAdjacentHTML("beforeend", "</br>");
-    everyDay.appendChild(cardC3);
-    everyDay.insertAdjacentHTML("beforeend", "</br>");
-    everyDay.appendChild(cardC4);
-    everyDay.insertAdjacentHTML("beforeend", "</br>");
-    everyDay.appendChild(cardC5);
-
+    //calendar.appendChild(monthSwitch) //TODO Create Month switch buttons
     calendar.appendChild(weekDays);
     calendar.appendChild(everyDay);
     document.querySelector("#main").appendChild(calendar);
@@ -410,5 +374,7 @@ class Calendar {
 
   setAppointments() {}
 }
+
+function addToAppts() {}
 
 let calendar = new Calendar().createCalendar();
