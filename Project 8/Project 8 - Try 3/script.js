@@ -331,7 +331,8 @@ class Calendar {
       );
       viewAppt.setAttribute("draggable", "true");
 
-      spacer = (day % 7) + weekDay;
+      let firstDay = new Date(year, month, 1);
+      spacer = (day % 7) + firstDay;
       if (k > spacer) {
         cardTitleDay.innerHTML = dayNum;
         plusEl.appendChild(plus);
